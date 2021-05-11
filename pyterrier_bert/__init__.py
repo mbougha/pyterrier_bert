@@ -17,8 +17,10 @@ def add_label_column(run_df, qrels_df=None):
     if "label" in run_df.columns:
         qids_with_relevant = run_df[run_df["label"] > 0][["qid"]].drop_duplicates()
         final_DF = run_df.merge(qids_with_relevant, on="qid")
+        print(final_DF.head(5))
         if len(final_DF) == 0:
-            raise ValueError("No queries with relevant documents")
+            #raise ValueError("No queries with relevant documents")
+            print("no queries\n")
         final_DF["label"] = final_DF["label"].fillna(0)
         # ensure labels are ints
         final_DF["label"] = final_DF["label"].astype(int)
