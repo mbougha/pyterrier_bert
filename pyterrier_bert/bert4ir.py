@@ -67,7 +67,8 @@ class BERTPipeline(EstimatorBase):
         super().__init__(*args, **kwargs)
         #error will happen below on token_type_ids if you change this to distilbert-base-uncased
         self.tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')
-        self.model = DistilBertForSequenceClassification.from_pretrained("distilbert-base-uncased")
+        #self.model = DistilBertForSequenceClassification.from_pretrained("distilbert-base-uncased")
+        self.model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=2)
         self.max_train_rank = max_train_rank
         self.max_valid_rank = max_valid_rank
         self.get_doc_fn = get_doc_fn
