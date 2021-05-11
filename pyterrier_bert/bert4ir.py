@@ -276,7 +276,8 @@ from torch.utils.data import DataLoader
 from tokenizers import BertWordPieceTokenizer
 
 
-GPUS_TO_USE = [2,4,5,6,7] # If you have multiple GPUs, pick the ones you want to use.
+GPUS_TO_USE = [0]
+#[2,4,5,6,7] # If you have multiple GPUs, pick the ones you want to use.
 number_of_cpus = 1 #was 24 # Number of CPUS to use when loading your dataset.
 n_epochs = 2 # How may passes over the whole dataset to complete
 weight_decay = 0.0 # Some papers define a weight decay, meaning, the weights on some layers will decay slower overtime. By default, we don't do this.
